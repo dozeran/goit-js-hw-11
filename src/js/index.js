@@ -52,7 +52,7 @@ async function onMoreClick() {
 
     let allPages = Math.ceil(searchData.totalHits / searchApiService.perPage);
     if (allPages < searchApiService.page) {
-      Notify.failure(
+      Notify.warning(
         `We're sorry, but you've reached the end of search results.`
       );
       loadMoreButton.style.display = 'none';
