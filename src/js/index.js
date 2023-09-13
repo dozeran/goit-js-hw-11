@@ -17,7 +17,7 @@ loadMoreButton.addEventListener('click', onMoreClick);
 async function searchImages(e) {
   e.preventDefault();
 
-  searchApiService.query = e.currentTarget.elements.searchQuery.value;
+  searchApiService.query = e.currentTarget.elements.searchQuery.value.trim();
 
   if (searchApiService.query === '') {
     return Notify.failure(`Oops! Empty Request!`);
@@ -77,7 +77,6 @@ function renderGallery(searchData) {
   if (!searchData) {
     gallery.innerHTML = '';
   }
-  console.log(searchData);
   const markup = searchData.hits
     .map(
       item => `
